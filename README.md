@@ -18,14 +18,36 @@ As I a user:
 
 
 # The Wireframes:
+# Login Page
+![Project 2-4](https://user-images.githubusercontent.com/19142112/173126168-f5751ed1-3f97-40b8-a856-653f8b6cf59b.jpg)
+
+# Grocery List
+![Project 2-2](https://user-images.githubusercontent.com/19142112/173126230-32854ca0-640d-4284-940c-3495c18f7447.jpg)
+
+# Nutrition Analysis
+![Project 2-5](https://user-images.githubusercontent.com/19142112/173126287-434900a8-7a07-4bca-9b31-099d6ced9eae.jpg)
+
 
 # The ERD:
+Every user can add/edit items.
+Every item has unit price, nutrition data
+Every category has many items.
 
 # Route Table:
 
+
+
+
 # Technologies Used:
+- Javacript
+- Node JS
+- Express
+- MongoDB
+- Mongoose
+- ...
 
 # How To Use:
+
 
 # MVP Requirements:
 
