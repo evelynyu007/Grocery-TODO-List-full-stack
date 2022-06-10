@@ -19,19 +19,21 @@ As I a user:
 
 # The Wireframes:
 # Login Page
-![Project 2-4](https://user-images.githubusercontent.com/19142112/173126168-f5751ed1-3f97-40b8-a856-653f8b6cf59b.jpg)
+![Project 2-4](https://user-images.githubusercontent.com/19142112/173138472-8a885bfb-54ff-4f78-896f-8d017717c30a.jpg)
 
 # Grocery List
-![Project 2-2](https://user-images.githubusercontent.com/19142112/173126230-32854ca0-640d-4284-940c-3495c18f7447.jpg)
+![Project 2-2](https://user-images.githubusercontent.com/19142112/173138644-1f3b57b6-6e1b-481e-b316-33fd137e3140.jpg)
+
+# Create/Edit
+![Project 2-3](https://user-images.githubusercontent.com/19142112/173138603-26aa5b98-017b-4576-b7b2-d24aeebb7c36.jpg)
 
 # Nutrition Analysis
 ![Project 2-5](https://user-images.githubusercontent.com/19142112/173126287-434900a8-7a07-4bca-9b31-099d6ced9eae.jpg)
 
 
 # The ERD:
-Every user can add/edit items.
-Every item has unit price, nutrition data
-Every category has many items.
+![p2 erd](https://user-images.githubusercontent.com/19142112/173137285-decd3556-d3ad-40eb-85a5-84e4d5ab9964.jpg)
+
 
 # Route Table:
 
