@@ -1,0 +1,32 @@
+{
+  "name": "grocery-todo-list-full-stack",
+  "version": "1.0.0",
+  "description": "# Premise: 😱 How many times did you forget to buy something essential after your grocery haul?<br/> 😎 Instore Grocery shopping can be well-organized and fun!!!<br/> ⏩ Check out this brand new rocery Todo List APP! <br/> ✅ Hunting for new grocery item? No problem!<br/>",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evelynyu007/Grocery-TODO-List-full-stack.git"
+  },
+  "keywords": [],
+  "author": "Wenling Yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evelynyu007/Grocery-TODO-List-full-stack/issues"
+  },
+  "homepage": "https://github.com/evelynyu007/Grocery-TODO-List-full-stack#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "http-errors": "^2.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.3.6",
+    "morgan": "^1.10.0"
+  }
+}
