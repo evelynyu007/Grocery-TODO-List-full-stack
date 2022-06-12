@@ -1,7 +1,9 @@
 const MealprepModel = require("../models/mealprep.js");
+const IngredientModel = require("../models/ingredient.js");
 
 module.exports = {
   index,
+  show,
   new: newMeal,
   create,
 };
@@ -15,9 +17,23 @@ function index(req, res) {
   });
 }
 
-// show each meal prep details
+// show each meal prep details, including ingredients
 function show(req, res) {
-  MealprepModel.findById(req.params.id);
+  MealprepModel.findById(req.params.id)
+    .populate("ingredients")
+    .exec(function (err, mealprep) {
+      IngredientModel.find(
+        { _id: { $nin: mealprep.ingredients } },
+        function (err, ingredients) {
+          console.log(ingredients);
+          res.redener("mealprep/show", {
+            title: "Meal Prep Detail",
+            mealprep,
+            ingredients,
+          });
+        }
+      );
+    });
 }
 
 // New meal prep
@@ -31,6 +47,7 @@ function create(req, res) {
   }
   const mealprep = new MealprepModel(req.body);
 
+  // with save(), you get full validation & middleware
   mealprep.save(function (err) {
     if (err) return res.redirect("/mealprep/new");
     console.log("new meal prep created");

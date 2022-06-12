@@ -8,6 +8,7 @@ const ingredientSchema = new Schema({
     unique: true,
   },
   nutrition: String, /// will be API
+  mealpreps: [{ type: Schema.Types.ObjectId, ref: "Mealprep" }],
 });
 
 module.exports = mongoose.model("IngredientModel", ingredientSchema);

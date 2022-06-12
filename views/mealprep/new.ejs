@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="new-form" action="/mealprep" method="POST">
+<br id="new-form" action="/mealprep" method="POST">
   <label>Title:</label>
   <input type="text" name="title" />
   <br />
@@ -15,10 +15,11 @@
   <br />
   <label>Star Rating</label>
   <select name="starRating">
-    <option value="ok">🌟</option>
-    <option value="average">🌟🌟</option>
     <option value="favoriate">🌟🌟🌟</option>
+    <option value="average">🌟🌟</option>
+    <option value="ok">🌟</option>
   </select>
+  <br/>
   <input type="submit" value="Add Meal Prep" />
 </form>
 
