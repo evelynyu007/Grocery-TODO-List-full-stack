@@ -10,6 +10,7 @@ const mealprepSchema = new Schema({
   ingredients: [{ type: Schema.Types.ObjectId, ref: "Ingredient" }],
   prep_time: Number,
   imgURL: String,
+  starRating: String,
 });
 
 module.exports = mongoose.model("MealprepModel", mealprepSchema);

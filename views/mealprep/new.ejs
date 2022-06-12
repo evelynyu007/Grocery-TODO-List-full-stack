@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/mealprep" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" />
+  <br />
+  <label>Price:</label>
+  <input type="number" name="price" />
+  <br />
+  <label>Prep Time:</label>
+  <input type="number" name="prep_time" />
+  <br />
+  <label>Image URL:</label>
+  <input type="url" name="imgURL" />
+  <br />
+  <label>Star Rating</label>
+  <select name="starRating">
+    <option value="ok">🌟</option>
+    <option value="average">🌟🌟</option>
+    <option value="favoriate">🌟🌟🌟</option>
+  </select>
+  <input type="submit" value="Add Meal Prep" />
+</form>
+
+<%- include('../partials/footer') %>
