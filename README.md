@@ -4,8 +4,8 @@
 
 😱 How many times did you forget to buy something essential after your grocery haul?<br/>
 😎 Instore Grocery shopping can be well-organized and fun!!!<br/>
-⏩ Check out this brand new Meal Prep To Buy APP! <br/>
-✅ Hunting for new grocery item? No problem!<br/>
+⏩ Check out this Meal-Oriented To Buy APP! <br/>
+✅ Foodie hunting for new grocery stuff? No problem!<br/>
 
 # The User Story:
 

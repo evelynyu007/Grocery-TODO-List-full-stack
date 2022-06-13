@@ -3,6 +3,7 @@ const IngredientModel = require("../models/ingredient.js");
 
 module.exports = {
   new: newIngredient,
+  show,
   create,
   addToIngredient,
 };
@@ -29,4 +30,18 @@ function newIngredient(req, res) {
       ingredients,
     });
   });
+}
+
+function show(req, res) {
+  IngredientModel.findById(req.params.id)
+    .then((ingredient) => {
+      res.render("ingredients/show", {
+        title: "Ingredient Detail",
+        ingredient,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({ err });
+    });
 }

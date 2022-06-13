@@ -1,11 +1,15 @@
 <%- include('../partials/header') %>
 
 <div>
-  Before adding, please ensure that the Performer is not in the following list:
+  Before adding, please ensure that the Ingredient is not in the following list:
 </div>
 <section id="badge-container">
-  <% ingredients.forEach(function(p) { %>
-  <article class="badge"><%= p.name %></article>
+  <% ingredients.forEach(function(i) { %>
+
+  <article class="badge">
+    <%= i.name %>
+    <a href="/ingredients/<%= i._id %>"><button>DETAILS</button></a>
+  </article>
   <% }) %>
 </section>
 

@@ -52,3 +52,8 @@ footer {
   text-align: center;
   margin: 80px auto 20px;
 }
+/* not working... */
+.mealImage {
+  max-width: 1000;
+  height: auto;
+}

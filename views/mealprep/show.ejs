@@ -9,7 +9,7 @@
   <div><%= mealprep.starRating %></div>
   <div>Prepare Time:</div>
   <div><%= mealprep.prep_time %></div>
-  <img src=" <%= mealprep.imgURL %>" alt="" />
+
   <!-- start ingredient list -->
   <div>Ingredients:</div>
   <ul>
@@ -33,6 +33,6 @@
   </select>
   <button type="submit">Add to Ingredient</button>
 </form>
-
+<img class="mealImage" src=" <%= mealprep.imgURL %>" alt="<%= mealprep.title %>" />
   <%- include('../partials/footer') %>
 </section>
