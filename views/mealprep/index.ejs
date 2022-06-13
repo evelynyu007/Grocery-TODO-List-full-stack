@@ -1,5 +1,4 @@
-<%- include('../partials/header') %>
-
+<%- include('../partials/header') %> <% if (mealprep.length) { %>
 <table id="list">
   <thead>
     <tr>
@@ -18,5 +17,6 @@
     <% }); %>
   </tbody>
 </table>
-
-<%- include('../partials/footer') %>
+<% } else { %>
+<h3>No Meal Prep Yet</h3>
+<% } %> <%- include('../partials/footer') %>

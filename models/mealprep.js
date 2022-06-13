@@ -10,7 +10,8 @@ const mealprepSchema = new Schema({
     type: Number,
     min: 0,
   },
-  ingredients: [{ type: Schema.Types.ObjectId, ref: "Ingredient" }],
+  /// ref -  tells Mongoose which model to use during population,
+  ingredients: [{ type: Schema.Types.ObjectId, ref: "IngredientModel" }],
   prep_time: {
     type: Number,
     min: 0,

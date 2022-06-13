@@ -9,29 +9,30 @@
   <div><%= mealprep.starRating %></div>
   <div>Prepare Time:</div>
   <div><%= mealprep.prep_time %></div>
-  <img src="<%= mealprep.imgURL>" alt="<%= mealpre.title>" />
+  <img src=" <%= mealprep.imgURL %>" alt="" />
   <!-- start ingredient list -->
   <div>Ingredients:</div>
   <ul>
-    <%- mealpre.ingredients.map(i => `
-    <li>${i.name} <small>${i.born.toLocaleDateString()}</small></li>
+    <%- mealprep.ingredients.map(i => `
+    <li>${i.name} </li>
     ` ).join('') %>
   </ul>
   <!-- end cast list -->
 </section>
 
 <!-- add to ingredients form below this comment -->
-<form
+  <form
   id="add-per-to-cast"
-  action="/movies/<%=mealprep._id%>/ingredients"
+  action="/mealprep/<%=mealprep._id%>/ingredients"
   method="POST"
 >
-  <select name="performerId">
-    <%- performers.map(p => `
+  <select name="ingredientId">
+    <%- ingredients.map(p => `
     <option value="${p._id}">${p.name}</option>
     ` ).join('') %>
   </select>
   <button type="submit">Add to Ingredient</button>
 </form>
 
-<%- include('../partials/footer') %>
+  <%- include('../partials/footer') %>
+</section>

@@ -11,6 +11,7 @@ require("./config/database");
 
 const indexRouter = require("./routes/index");
 const mealprepRouter = require("./routes/mealprep");
+const ingredientRouter = require("./routes/ingredients");
 
 // express app
 var app = express();
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/mealprep", mealprepRouter);
+app.use("/", ingredientRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

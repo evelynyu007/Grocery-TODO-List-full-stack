@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<div>
+  Before adding, please ensure that the Performer is not in the following list:
+</div>
+<section id="badge-container">
+  <% ingredients.forEach(function(p) { %>
+  <article class="badge"><%= p.name %></article>
+  <% }) %>
+</section>
+
+<form id="add-performer-form" action="/ingredients" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" />
+  <!-- Nutrition API -->
+  <input type="submit" value="Add Ingredient" />
+</form>
+
+<%- include('../partials/footer') %>

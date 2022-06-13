@@ -26,7 +26,7 @@ function show(req, res) {
         { _id: { $nin: mealprep.ingredients } },
         function (err, ingredients) {
           console.log(ingredients);
-          res.redener("mealprep/show", {
+          res.render("mealprep/show", {
             title: "Meal Prep Detail",
             mealprep,
             ingredients,
@@ -51,6 +51,9 @@ function create(req, res) {
   mealprep.save(function (err) {
     if (err) return res.redirect("/mealprep/new");
     console.log("new meal prep created");
+    console.log(mealprep);
     res.redirect(`/mealprep/${mealprep._id}`);
   });
 }
+
+// Delete
