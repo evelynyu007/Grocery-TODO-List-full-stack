@@ -4,10 +4,10 @@
   <label>Title:</label>
   <input type="text" name="title" />
   <br />
-  <label>Price:</label>
+  <label>Estimated Price($):</label>
   <input type="number" name="price" />
   <br />
-  <label>Prep Time:</label>
+  <label>Prepare Time(min):</label>
   <input type="number" name="prep_time" />
   <br />
   <label>Image URL:</label>
@@ -15,11 +15,21 @@
   <br />
   <label>Star Rating</label>
   <select name="starRating">
-    <option value="favoriate">🌟🌟🌟</option>
-    <option value="average">🌟🌟</option>
-    <option value="ok">🌟</option>
+    <option value="🌟🌟🌟">🌟🌟🌟</option>
+    <option value="🌟🌟">🌟🌟</option>
+    <option value="🌟">🌟</option>
   </select>
   <br />
+
+  <!-- add to ingredients form below this comment -->
+  <label>Select Ingredients: </label> <br />
+  <%- dataIngredients.map(i=>`
+  <input type="checkbox" id="${i._id}" name="ingredients" value="${i._id}" />
+  <label for="${i._id}">${i.name}</label><br />
+  `).join('') %>
+
+  <!-- Submit Meal Prep  -->
+
   <input type="submit" value="Add Meal Prep" />
 </form>
 

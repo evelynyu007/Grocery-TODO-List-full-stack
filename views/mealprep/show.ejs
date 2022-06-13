@@ -1,38 +1,33 @@
 <%- include('../partials/header') %>
 
-<section id="show-page">
+<section id="meal-show-page">
   <div>Title:</div>
   <div><%= mealprep.title %></div>
-  <div>Price:</div>
+  <div>Estimated Price:</div>
   <div><%= mealprep.price %></div>
   <div>Rating:</div>
   <div><%= mealprep.starRating %></div>
   <div>Prepare Time:</div>
   <div><%= mealprep.prep_time %></div>
 
-  <!-- start ingredient list -->
+  <!-- start ingredient list (has to use %- to use map) -->
   <div>Ingredients:</div>
   <ul>
     <%- mealprep.ingredients.map(i => `
     <li>${i.name} </li>
     ` ).join('') %>
   </ul>
-  <!-- end cast list -->
+  <!-- end ingredient list -->
 </section>
+<!-- add ingredients form below this comment -->
 
-<!-- add to ingredients form below this comment -->
-  <form
-  id="add-per-to-cast"
-  action="/mealprep/<%=mealprep._id%>/ingredients"
-  method="POST"
->
-  <select name="ingredientId">
-    <%- ingredients.map(p => `
-    <option value="${p._id}">${p.name}</option>
-    ` ).join('') %>
-  </select>
-  <button type="submit">Add to Ingredient</button>
-</form>
+<!-- end to add ingredients -->
+
+
+
+<!-- Meal Image -->
 <img class="mealImage" src=" <%= mealprep.imgURL %>" alt="<%= mealprep.title %>" />
-  <%- include('../partials/footer') %>
+ 
+<!-- Footer -->
+<%- include('../partials/footer') %>
 </section>

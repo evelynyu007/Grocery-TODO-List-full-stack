@@ -4,12 +4,19 @@
   <div>Name:</div>
   <div><%= ingredient.name %></div>
   <br />
+  <!-- show meals below this comment -->
+  <div>Meal Ideas:</div>
+  <ul>
+    <%- ingredient.mealprep.map(m => `
+    <li>${m.title}</li>
+    ` ).join('') %>
+  </ul>
+
+  <br /><br /><br />
   <!-- start Nutrition list -->
   <div>Nutrition:</div>
 
   <!-- end Nutrition list -->
-
-  <!-- show meals below this comment -->
 </section>
 
 <%- include('../partials/footer') %>

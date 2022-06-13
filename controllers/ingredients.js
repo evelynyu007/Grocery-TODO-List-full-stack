@@ -32,16 +32,33 @@ function newIngredient(req, res) {
   });
 }
 
+// function show(req, res) {
+//   IngredientModel.findById(req.params.id)
+//     .then((ingredient) => {
+//       res.render("ingredients/show", {
+//         title: "Ingredient Detail",
+//         ingredient,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.json({ err });
+//     });
+// }
+
 function show(req, res) {
-  IngredientModel.findById(req.params.id)
-    .then((ingredient) => {
-      res.render("ingredients/show", {
-        title: "Ingredient Detail",
-        ingredient,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.json({ err });
+  MealprepModel.find(req.params.id)
+    .populate("mealprep")
+    .exec(function (err, ingredient) {
+      MealprepModel.find(
+        { _id: { $nin: ingredient.mealprep } },
+        function (err, mealprep) {
+          res.render("ingredients/show", {
+            title: "Ingredient Detail",
+            ingredient,
+            mealprep,
+          });
+        }
+      );
     });
 }

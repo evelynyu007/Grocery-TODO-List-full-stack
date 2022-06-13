@@ -20,6 +20,7 @@ function index(req, res) {
 }
 
 // show each meal prep details, including ingredients
+// ??? I don't need $nin right???
 function show(req, res) {
   MealprepModel.findById(req.params.id)
     .populate("ingredients")
@@ -27,7 +28,7 @@ function show(req, res) {
       IngredientModel.find(
         { _id: { $nin: mealprep.ingredients } },
         function (err, ingredients) {
-          console.log(ingredients);
+          // console.log(ingredients);
           res.render("mealprep/show", {
             title: "Meal Prep Detail",
             mealprep,
@@ -39,21 +40,30 @@ function show(req, res) {
 }
 
 // New meal prep
-function newMeal(req, res) {
-  res.render("mealprep/new", { title: "Add Meal Prep" });
+// function newMeal(req, res) {
+//   res.render("mealprep/new", { title: "Add Meal Prep"});
+// }
+
+async function newMeal(req, res) {
+  console.log(IngredientModel);
+  const dataIngredients = await IngredientModel.find({}); // should be object
+  // console.log(dataIngredients); // object data
+  res.render("mealprep/new", { title: "Add Meal Prep", dataIngredients });
 }
 
 function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === "") delete req.body[key];
   }
+
+  console.log(req.body); // object, each ingredient is a variables now
+
   const mealprep = new MealprepModel(req.body);
 
   // with save(), you get full validation & middleware
   mealprep.save(function (err) {
     if (err) return res.redirect("/mealprep/new");
     console.log("new meal prep created");
-    console.log(mealprep);
     res.redirect(`/mealprep/${mealprep._id}`);
   });
 }
