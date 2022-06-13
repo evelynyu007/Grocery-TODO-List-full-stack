@@ -7,7 +7,7 @@ router.get("/", mealprepCtrl.index);
 router.get("/new", mealprepCtrl.new);
 router.get("/:id", mealprepCtrl.show);
 router.post("/", mealprepCtrl.create);
-// here is post not delete ?!
-router.post("/:id", mealprepCtrl.deleteIt);
+// method override
+router.delete("/:id", mealprepCtrl.deleteIt);
 
 module.exports = router;
