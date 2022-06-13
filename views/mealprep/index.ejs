@@ -12,7 +12,15 @@
     <tr>
       <td><%= m.title %></td>
       <td><%= m.price %></td>
-      <td><a href="/mealprep/<%= m._id %>">DETAILS</a></td>
+      <td>
+        <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>
+      </td>
+      <td>
+        <!-- why ?_method=DELETE -->
+        <form action="/mealprep/<%= m._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" />
+        </form>
+      </td>
     </tr>
     <% }); %>
   </tbody>

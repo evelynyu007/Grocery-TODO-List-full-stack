@@ -1,11 +1,13 @@
 const MealprepModel = require("../models/mealprep.js");
 const IngredientModel = require("../models/ingredient.js");
+const mealprep = require("../models/mealprep.js");
 
 module.exports = {
   index,
   show,
   new: newMeal,
   create,
+  deleteIt,
 };
 
 function index(req, res) {
@@ -57,3 +59,20 @@ function create(req, res) {
 }
 
 // Delete
+function deleteIt(req, res) {
+  const id = req.params.id;
+  MealprepModel.findByIdAndRemove(id)
+    .then(() => {
+      // redirect to main page after deleting
+      res.redirect("/mealprep");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+}
+
+// function deleteIt(req, res) {
+//   MealprepModel.find({ id: req.params.id }).remove().exec();
+// }
