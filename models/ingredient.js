@@ -17,9 +17,3 @@ const ingredientSchema = new Schema({
 });
 
 module.exports = mongoose.model("IngredientModel", ingredientSchema);
-
-// object doesn't work
-// nutrition: {
-//   content: String,
-//   protein: String,
-// },

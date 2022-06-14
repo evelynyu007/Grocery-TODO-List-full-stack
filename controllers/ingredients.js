@@ -61,13 +61,32 @@ async function show(req, res) {
 // POST for API
 async function createAPI(req, res) {
   console.log(req.body.name);
-  console.log(req.body.id);
-  console.log("is this working???");
   const id = req.body.id;
-  // api data save into ingredients
+  // find the ingredient
   const ingredient = await IngredientModel.findById(id);
-  // issue: mulitple pushed...
-  ingredient.nutrition.push({ content: "test" }); // successfully pushed
+
+  // fetch API
+  const params = {
+    api_key: "nNW70iQZe3o7p7bCCSrrasvQAt6i2g7rtb0Cz7xs",
+    query: req.body.name, //need to get ingredients name
+    dataType: ["Survey (FNDDS)"],
+    pagesize: 1,
+  };
+  const api_url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${encodeURIComponent(
+    params.api_key
+  )}&query=${encodeURIComponent(params.query)}&dataType=${encodeURIComponent(
+    params.dataType
+  )}&pageSize=${encodeURIComponent(params.pagesize)}`;
+
+  const response = await fetch(api_url);
+  const dataFood = await response.json();
+  const dataNutrients = dataFood.foods[0].foodNutrients;
+  // api data save into ingredients
+  // issue: mulitple pushed...delete...
+  for (let n = 0; n < 2; n++) {
+    console.log(dataNutrients[n]);
+    ingredient.nutrition.push(dataNutrients[n]); // successfully pushed
+  }
   console.log(ingredient);
   ingredient.save(function (err) {
     res.redirect(`/ingredients/${id}`);
