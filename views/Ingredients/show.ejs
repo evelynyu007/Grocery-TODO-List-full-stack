@@ -22,8 +22,9 @@
   <!-- start Nutrition list -->
   <!-- Grab from API -->
   <h3>Nutrition:</h3>
-
-  <!-- <p>Content: <%=  ingredient.nutrition.content %></p> -->
+ <% ingredient.nutrition.forEach(function(r){ %>
+   <%= r.content %>
+ <% }); %>
   <!-- end Nutrition list -->
 </section>
 

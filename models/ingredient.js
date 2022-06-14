@@ -13,7 +13,7 @@ const ingredientSchema = new Schema({
   },
   mealprep: [{ type: Schema.Types.ObjectId, ref: "MealprepModel" }],
   // nutrition: [nutritionSchema], /// from API
-  nutrition: [],
+  nutrition: [], /// store object
 });
 
 module.exports = mongoose.model("IngredientModel", ingredientSchema);
