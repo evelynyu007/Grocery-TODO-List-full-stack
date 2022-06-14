@@ -4,13 +4,19 @@
   <div>Name:</div>
   <div><%= ingredient.name %></div>
   <br />
+
   <!-- show meals below this comment -->
   <div>Meal Ideas:</div>
   <ul>
-    <%- ingredient.mealprep.map(m => `
-    <li>${m.title}</li>
-    ` ).join('') %>
-  </ul>
+    <% dataMeal.forEach(function(m){ %>
+    <article class="badge"></article>
+    <li>
+      <%= m.title %>
+      <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>  
+    </li>
+    </article>
+    <% }) %>
+  </ul> 
 
   <br /><br /><br />
   <!-- start Nutrition list -->
