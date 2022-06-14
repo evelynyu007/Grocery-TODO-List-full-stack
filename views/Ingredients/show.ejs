@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
 
 <section id="ingredient-show-page">
-  <div>Name:</div>
-  <div><%= ingredient.name %></div>
+  <h3>Name:</h3>
+  <h2><%= ingredient.name %></h2>
   <br />
 
   <!-- show meals below this comment -->
-  <div>Meal Ideas:</div>
+  <h3>Meal Ideas:</h3>
   <ul>
     <% dataMeal.forEach(function(m){ %>
     <article class="badge"></article>
@@ -20,8 +20,10 @@
 
   <br /><br /><br />
   <!-- start Nutrition list -->
-  <div>Nutrition:</div>
+  <!-- Grab from API -->
+  <h3>Nutrition:</h3>
 
+  <!-- <p>Content: <%=  ingredient.nutrition.content %></p> -->
   <!-- end Nutrition list -->
 </section>
 
