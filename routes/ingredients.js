@@ -8,7 +8,8 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 // Router Middleware
 ////////////////////////////////////////
 // Authorization Middleware
-// cannot access food unless login
+// cannot access ingredient unless login
+// BUG: keep redirecting...
 // router.use((req, res, next) => {
 //   if (req.session.loggedIn) {
 //     next();

@@ -7,11 +7,14 @@
       <th></th>
     </tr>
   </thead>
+  <% let total = 0 %>
+
   <tbody>
     <% mealprep.forEach(function(m) { %>
     <tr>
       <td><%= m.title %></td>
       <td><%= m.price %></td>
+      <% if(m.price) total += m.price %>
       <td>
         <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>
       </td>
@@ -25,8 +28,12 @@
     <% }); %>
   </tbody>
 </table>
+<br />
+<div>💵 Total Cost: <%= total %> 💵</div>
 <% } else { %>
 <h3>No Meal Prep Yet</h3>
 <% } %>
+
+<br />
 <a href="/users/logout"><button>Logout</button></a>
 <%- include('../partials/footer') %>

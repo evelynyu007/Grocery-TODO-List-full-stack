@@ -27,14 +27,22 @@ module.exports = {
 // }
 
 // POST
-function create(req, res) {
-  IngredientModel.create(req.body, function (err, ingredients) {
+async function create(req, res) {
+  // handle the name with spaces - not now
+  requestURL = `https://spoonacular.com/cdn/ingredients_100x100/${req.body.name}.jpg`;
+
+  await IngredientModel.create(req.body, async function (err, ingredients) {
+    // at this moment, apple is created
+    await IngredientModel.updateOne(
+      { name: req.body.name },
+      { imgURL: requestURL }
+    );
     res.redirect("/ingredients/new");
   });
 }
 
 // GET
-function newIngredient(req, res) {
+async function newIngredient(req, res) {
   IngredientModel.find({}, function (err, ingredients) {
     res.render("ingredients/new", {
       title: "Add Ingredient",
