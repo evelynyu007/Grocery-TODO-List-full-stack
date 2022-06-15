@@ -4,7 +4,7 @@
 const createError = require("http-errors");
 const express = require("express");
 // did i use morgan???
-const morgan = require("morgan"); //HTTP request logger middleware for node js
+// const morgan = require("morgan"); //HTTP request logger middleware for node js
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false })); ///false ?????????????????????
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"))); // serve files from public statically
 app.use(methodOverride("_method")); // override for put and delete requests from forms
-app.use(morgan("tiny")); //logging
+//app.use(morgan("tiny")); //logging
 app.use(
   session({
     secret: process.env.SECRET,
