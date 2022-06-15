@@ -66,7 +66,8 @@ async function createAPI(req, res) {
 
   // fetch API
   const params = {
-    api_key: "nNW70iQZe3o7p7bCCSrrasvQAt6i2g7rtb0Cz7xs",
+    // api_key: "nNW70iQZe3o7p7bCCSrrasvQAt6i2g7rtb0Cz7xs",
+    api_key: process.env.USDA_API_KEY,
     query: req.body.name, //need to get ingredients name
     dataType: ["Survey (FNDDS)"],
     pagesize: 1,
@@ -89,8 +90,10 @@ async function createAPI(req, res) {
     // if found then overwrite
     // https://mongoosejs.com/docs/documents.html
     // await ingredient.overwrite({ nutrition: dataNutrients }); //this not works
-    await IngredientModel.updateOne({ _id: id }, { nutrition: dataNutrients });
-    await IngredientModel.updateOne({ _id: id }, { description: dataDesc });
+    await IngredientModel.updateOne(
+      { _id: id },
+      { nutrition: dataNutrients, description: dataDesc }
+    );
   } catch (error) {
     console.log(error);
   }
