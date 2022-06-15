@@ -62,8 +62,6 @@ async function show(req, res) {
 async function createAPI(req, res) {
   console.log(req.body.name);
   const id = req.body.id;
-  // find the ingredient
-  const ingredient = await IngredientModel.findById(id);
 
   // fetch API
   const params = {
@@ -78,16 +76,31 @@ async function createAPI(req, res) {
     params.dataType
   )}&pageSize=${encodeURIComponent(params.pagesize)}`;
 
-  const response = await fetch(api_url);
-  const dataFood = await response.json();
-  const dataNutrients = dataFood.foods[0].foodNutrients;
-  // api data save into ingredients
-  // issue: mulitple pushed...delete...
-  for (let n = 0; n < 2; n++) {
-    console.log(dataNutrients[n]);
-    ingredient.nutrition.push(dataNutrients[n]); // successfully pushed
+  // find the ingredient and update the nutrients array
+  const ingredient = await IngredientModel.findById(id);
+
+  // in case api cannot find
+  try {
+    const response = await fetch(api_url);
+    const dataFood = await response.json();
+    const dataNutrients = dataFood.foods[0].foodNutrients;
+    // if found then overwrite
+    ingredient.overwrite({ nutrition: dataNutrients });
+  } catch (error) {
+    console.log(error);
   }
+
+  // api data save into ingredients
+  // BUG: mulitple pushed...cannot delete...
+
+  // for (let n = 0; n < dataNutrients.length; n++) {
+  //   // ingredient.nutrition.length = 0; //not working
+  //   ingredient.nutrition.push(dataNutrients[n]); // successfully pushed
+  // }
+
   console.log(ingredient);
+
+  ///what to save
   ingredient.save(function (err) {
     res.redirect(`/ingredients/${id}`);
   });

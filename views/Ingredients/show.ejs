@@ -21,10 +21,14 @@
   <br /><br /><br />
   <!-- start Nutrition list -->
   <!-- Grab from API -->
-  <h3>Nutrition:</h3>
- <% ingredient.nutrition.forEach(function(i){ %>
-   <%= i.nutrientName %> : <%= i.value %> <%= i.unitName %> <br />
- <% }); %>
+  <% if (ingredient.nutrition.length > 0){  %>
+   <h3>Nutrition:</h3>
+    <% ingredient.nutrition.forEach(function(i){ %>
+      <%= i.nutrientName %> : <%= i.value %><%= i.unitName %> <br />
+    <% }); %>
+  <% } else { %>    
+    <h3>Nutrition Not Found</h3> 
+  <% } %>
   <!-- end Nutrition list -->
 </section>
 
