@@ -66,7 +66,6 @@ async function createAPI(req, res) {
 
   // fetch API
   const params = {
-    // api_key: "nNW70iQZe3o7p7bCCSrrasvQAt6i2g7rtb0Cz7xs",
     api_key: process.env.USDA_API_KEY,
     query: req.body.name, //need to get ingredients name
     dataType: ["Survey (FNDDS)"],
