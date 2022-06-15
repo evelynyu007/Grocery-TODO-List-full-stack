@@ -25,7 +25,7 @@ async function create(req, res) {
   // create user model
   UserModel.create(req.body)
     .then((user) => {
-      res.redirect("users/login");
+      res.redirect("/users/login");
     })
     .catch((err) => {
       console.log(err);
