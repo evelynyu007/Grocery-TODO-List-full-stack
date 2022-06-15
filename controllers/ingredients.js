@@ -85,22 +85,16 @@ async function createAPI(req, res) {
     const dataFood = await response.json();
     const dataNutrients = dataFood.foods[0].foodNutrients;
     // if found then overwrite
-    ingredient.overwrite({ nutrition: dataNutrients });
+    // await ingredient.overwrite({ nutrition: dataNutrients }); //this not works
+    await IngredientModel.updateOne({ _id: id }, { nutrition: dataNutrients });
   } catch (error) {
     console.log(error);
   }
 
-  // api data save into ingredients
-  // BUG: mulitple pushed...cannot delete...
+  // after used IngredientModel to update, ingredient.nutrition.length = 0
+  // console.log("length: " + ingredient.nutrition.length); //this was correct
 
-  // for (let n = 0; n < dataNutrients.length; n++) {
-  //   // ingredient.nutrition.length = 0; //not working
-  //   ingredient.nutrition.push(dataNutrients[n]); // successfully pushed
-  // }
-
-  console.log(ingredient);
-
-  ///what to save
+  ///save
   ingredient.save(function (err) {
     res.redirect(`/ingredients/${id}`);
   });
