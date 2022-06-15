@@ -3,12 +3,20 @@
 <div>
   Before adding, please ensure that the Ingredient is not in the following list:
 </div>
+<!-- action = "/ingredients/ " -->
+<form id="add-ingredient-form" action="/ingredients" method="POST">
+  <label>Ingredient Name:</label>
+  <input type="text" name="name" />
+  <input type="submit" value="Add Ingredient" />
+</form>
+
 <section id="badge-container">
   <% ingredients.forEach(function(i) { %>
 
-  <!-- Nutrition API ??? use form and POST-->
   <article class="badge">
     <%= i.name %>
+    <!--TODO: Photo API ??? render it here-->
+
     <!-- send the form-data to a file named  -->
     <!-- GET -->
     <!-- <a href="/ingredients/<%= i._id %>"><button>DETAILS</button></a> -->
@@ -26,12 +34,5 @@
 
   <% }) %>
 </section>
-
-<!-- action = "/ingredients/ " -->
-<form id="add-ingredient-form" action="/ingredients" method="POST">
-  <label>Ingredient Name:</label>
-  <input type="text" name="name" />
-  <input type="submit" value="Add Ingredient" />
-</form>
 
 <%- include('../partials/footer') %>

@@ -22,6 +22,9 @@
   <!-- start Nutrition list -->
   <!-- Grab from API -->
   <% if (ingredient.nutrition.length > 0){  %>
+   <h3>Description:</h3>
+   <%= ingredient.description %>
+   <br />
    <h3>Nutrition:</h3>
     <% ingredient.nutrition.forEach(function(i){ %>
       <%= i.nutrientName %> : <%= i.value %><%= i.unitName %> <br />

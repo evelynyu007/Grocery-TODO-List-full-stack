@@ -84,11 +84,13 @@ async function createAPI(req, res) {
   try {
     const response = await fetch(api_url);
     const dataFood = await response.json();
+    const dataDesc = dataFood.foods[0].description;
     const dataNutrients = dataFood.foods[0].foodNutrients;
     // if found then overwrite
     // https://mongoosejs.com/docs/documents.html
     // await ingredient.overwrite({ nutrition: dataNutrients }); //this not works
     await IngredientModel.updateOne({ _id: id }, { nutrition: dataNutrients });
+    await IngredientModel.updateOne({ _id: id }, { description: dataDesc });
   } catch (error) {
     console.log(error);
   }
