@@ -10,12 +10,17 @@ module.exports = {
 };
 
 function index(req, res) {
-  MealprepModel.find({}, function (err, mealprep) {
-    res.render("mealprep/index", {
-      title: "All Meal Prep",
-      mealprep,
+  MealprepModel.find({ username: req.session.username })
+    .then((mealprep) => {
+      res.render("mealprep/index", {
+        title: "All Meal Prep",
+        mealprep,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
     });
-  });
 }
 
 // show each meal prep details, including ingredients
@@ -49,12 +54,15 @@ async function newMeal(req, res) {
   // console.log(dataIngredients); // object data
   res.render("mealprep/new", { title: "Add Meal Prep", dataIngredients });
 }
-
+////////////////////////////////
+// POST create route
+////////////////////////////////
 function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === "") delete req.body[key];
   }
-
+  // need to store req.body.username
+  req.body.username = req.session.username;
   console.log(req.body); // object, each ingredient is a variables now
 
   // create mealprep model

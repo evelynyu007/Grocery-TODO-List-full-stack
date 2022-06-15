@@ -16,6 +16,7 @@ const ingredientSchema = new Schema({
   // nutrition: [nutritionSchema], /// from API
   nutrition: [], /// store object
   // nutrition: { type: Array, default: void 0 }, - do not use this
+  // username: String,
 });
 
 module.exports = mongoose.model("IngredientModel", ingredientSchema);
