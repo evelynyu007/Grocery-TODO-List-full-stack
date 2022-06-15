@@ -1,3 +1,4 @@
+const bcrypt = require("bcryptjs/dist/bcrypt");
 const UserModel = require("../models/user.js");
 
 module.exports = {
@@ -5,6 +6,7 @@ module.exports = {
   create,
   indexLogin,
   show,
+  logout,
 };
 
 // GET
@@ -37,4 +39,39 @@ function indexLogin(req, res) {
 }
 
 // POST
-function show(req, res) {}
+async function show(req, res) {
+  const { username, password } = req.body;
+  try {
+    const user = await UserModel.findOne({ username });
+    // if found the user
+    if (user) {
+      try {
+        const result = await bcrypt.compare(password, user.password);
+        // if password is correct
+        if (result) {
+          // ! store some properties in the session object
+          req.session.username = username;
+          req.session.loggedIn = true;
+          console.log(req.session);
+          // redirect to meal page if successful
+          res.redirect("/mealprep");
+        } else {
+          res.json({ error: "🌚 Password doesn't match! 🌚" });
+        }
+      } catch (err) {
+        res.json({ message: err.message });
+      }
+    } else {
+      res.json({ error: " User doesn't exist! Did you signup? " });
+    }
+  } catch (err) {
+    res.json({ meesage: err.meesage });
+  }
+}
+
+function logout(req, res) {
+  // destroy session and redirect to main page
+  req.session.destroy((err) => {
+    res.redirect("/");
+  });
+}

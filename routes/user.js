@@ -23,6 +23,9 @@ router.post("/signup", userCtrl.create);
 router.get("/login", userCtrl.indexLogin);
 router.post("/login", userCtrl.show);
 
+// logout
+router.get("/logout", userCtrl.logout);
+
 //////////////////////////////////////////
 // Export the Router
 //////////////////////////////////////////
