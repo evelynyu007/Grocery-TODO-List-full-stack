@@ -13,6 +13,7 @@ module.exports = {
   show,
   create,
   createAPI,
+  deleteIt,
 };
 
 /// NOT ADD Ingredient from meal pages
@@ -85,6 +86,7 @@ async function createAPI(req, res) {
     const dataFood = await response.json();
     const dataNutrients = dataFood.foods[0].foodNutrients;
     // if found then overwrite
+    // https://mongoosejs.com/docs/documents.html
     // await ingredient.overwrite({ nutrition: dataNutrients }); //this not works
     await IngredientModel.updateOne({ _id: id }, { nutrition: dataNutrients });
   } catch (error) {
@@ -98,4 +100,18 @@ async function createAPI(req, res) {
   ingredient.save(function (err) {
     res.redirect(`/ingredients/${id}`);
   });
+}
+
+function deleteIt(req, res) {
+  const id = req.params.id;
+  IngredientModel.findByIdAndRemove(id)
+    .then(() => {
+      // redirect to the page after deleting
+      res.redirect("/ingredients/new");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
 }
