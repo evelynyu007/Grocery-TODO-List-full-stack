@@ -1,6 +1,5 @@
 const MealprepModel = require("../models/mealprep.js");
 const IngredientModel = require("../models/ingredient.js");
-const mealprep = require("../models/mealprep.js");
 
 module.exports = {
   index,
@@ -58,6 +57,7 @@ function create(req, res) {
 
   console.log(req.body); // object, each ingredient is a variables now
 
+  // create mealprep model
   const mealprep = new MealprepModel(req.body);
 
   // with save(), you get full validation & middleware

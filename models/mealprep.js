@@ -16,8 +16,9 @@ const mealprepSchema = new Schema({
     type: Number,
     min: 0,
   },
-  imgURL: String,
+  imgURL: String, // will use API instead of it
   starRating: String,
+  username: String,
 });
 // MealprepModel - is the singular name of the collection your model is for
 // Mongoose automatically looks for the plural, lowercased version of your model name

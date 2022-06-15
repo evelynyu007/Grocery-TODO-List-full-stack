@@ -77,8 +77,8 @@ async function createAPI(req, res) {
     params.dataType
   )}&pageSize=${encodeURIComponent(params.pagesize)}`;
 
-  // find the ingredient and update the nutrients array
-  const ingredient = await IngredientModel.findById(id);
+  // find the ingredient(object) and update the nutrients array
+  // const ingredient = await IngredientModel.findById(id);
 
   // in case api cannot find
   try {
@@ -97,13 +97,13 @@ async function createAPI(req, res) {
     console.log(error);
   }
 
-  // after used IngredientModel to update, ingredient.nutrition.length = 0
+  // after used IngredientModel to update, ingredient.nutrition=[]
   // console.log("length: " + ingredient.nutrition.length); //this was correct
-
+  res.redirect(`/ingredients/${id}`);
   ///save
-  ingredient.save(function (err) {
-    res.redirect(`/ingredients/${id}`);
-  });
+  // ingredient.save(function (err) {
+  //   res.redirect(`/ingredients/${id}`);
+  // });
 }
 
 function deleteIt(req, res) {
