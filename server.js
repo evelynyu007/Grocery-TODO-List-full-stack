@@ -26,7 +26,7 @@ const userRouter = require("./routes/user");
 var app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views")); //no need to do this??
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 /*========================================
@@ -36,7 +36,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); ///false ??????????????????????
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public"))); // serve files from public statically
+app.use(express.static(path.join(__dirname, "/public"))); // serve files from public statically
 app.use(methodOverride("_method")); // override for put and delete requests from forms
 //app.use(morgan("tiny")); //logging
 app.use(
