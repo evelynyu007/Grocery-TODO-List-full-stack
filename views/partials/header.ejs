@@ -4,24 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <!-- <link rel="icon" href="checklist.gif"> -->
+  <link rel='stylesheet' href='../../stylesheets/style.css' />
   <title>Your Healthy Partner</title>
   <!-- not working..  -->
-  <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../../image/hello.png" >
+
+
+
   <!-- Bootstrap CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-</head>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Google fonts - Kadam Thmor Pro -->
+<link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+<!-- Google fonts - ROboto -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<!-- EB Garamond -->
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+
 <body>
   <nav>
     <div class = "site-title"> 
-    <a href="/"><h1>Your Healthy Planner</h1></a>
+    <a href="/"><h1 id="site-title">Your Healthy Planner</h1></a>
     <p><%= title %></p>
     </div>
+    
    <ul>
-    <li> <a href="/mealprep/new"	<%- title === 'NEW MEAL PREP' ? 'class="active"' : '' %>>NEW MEAL Prep</a> </li>
-    <li> <a href="/ingredients/new" <%- title === 'NEW INGREDIENT' ? 'class="active"' : '' %>>NEW INGREDIENT</a></li>
-    <li> <a href="/mealprep" <%- title === 'All Meal Prep' ? 'class="active"' : '' %>>ALL Meal Prep</a></li>
+    <li> <a href="/mealprep/new"	<%- title === 'NEW MEAL PREP' ? 'class="active"' : '' %>>New MEAL Prep</a> </li>
+    <li> <a href="/mealprep" <%- title === 'All MEAL PREP' ? 'class="active"' : '' %>>ALL Meal Prep</a></li>
+    <li> <a href="/ingredients/new" <%- title === 'NEW INGREDIENT' ? 'class="active"' : '' %>>ALL INGREDIENT</a></li>
   </ul> 
   </nav>
   <main>

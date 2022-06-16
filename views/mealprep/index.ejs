@@ -16,12 +16,19 @@
       <td><%= m.price %></td>
       <% if(m.price) total += m.price %>
       <td>
-        <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>
+        <a href="/mealprep/<%= m._id %>"
+          ><button type="button" class="btn btn-success">DETAILS</button></a
+        >
       </td>
       <td>
         <!--  ?_method=DELETE to overwrite POST-->
         <form action="/mealprep/<%= m._id %>?_method=DELETE" method="POST">
-          <input type="submit" value="Delete" />
+          <input
+            type="submit"
+            value="Delete"
+            type="button"
+            class="btn btn-secondary"
+          />
         </form>
       </td>
     </tr>
@@ -35,5 +42,7 @@
 <% } %>
 
 <br />
-<a href="/users/logout"><button>Logout</button></a>
+<a href="/users/logout"
+  ><button type="button" class="btn btn-dark btn-sm">Logout</button></a
+>
 <%- include('../partials/footer') %>

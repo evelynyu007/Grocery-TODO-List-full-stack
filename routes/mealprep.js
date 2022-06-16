@@ -12,7 +12,7 @@ router.use((req, res, next) => {
     next();
     console.log("next is running");
   } else {
-    res.redirect("/users/login");
+    res.redirect("/users/signup_login");
   }
 });
 
