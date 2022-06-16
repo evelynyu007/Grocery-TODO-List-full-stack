@@ -42,7 +42,7 @@ app.use(methodOverride("_method")); // override for put and delete requests from
 app.use(
   session({
     secret: process.env.SECRET,
-    store: MongoStore.create({ mongoUrl: process.env.DATABASE_URL }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     saveUnintialized: true,
     resave: false,
   })
