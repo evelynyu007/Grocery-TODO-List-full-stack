@@ -44,7 +44,7 @@ async function create(req, res) {
 // GET
 async function newIngredient(req, res) {
   IngredientModel.find({}, function (err, ingredients) {
-    res.render("ingredients/new", {
+    res.render("ingredient/new", {
       title: "Add Ingredient",
       ingredients,
     });

@@ -5,7 +5,7 @@ router.get("/", function (req, res) {
   res.render("index", { title: "Grocery List" });
 });
 
-router.get("/ingredients", function (req, res) {
+router.get("/ingredient", function (req, res) {
   res.redirect("/ingredient/new");
 });
 

@@ -20,7 +20,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 // });
 
 router.get("/ingredient/new", ingredientsCtrl.new);
-router.post("/ingredients", ingredientsCtrl.create);
+router.post("/ingredient", ingredientsCtrl.create);
 router.get("/ingredient/:id", ingredientsCtrl.show);
 router.post("/ingredient/:id", urlencodedParser, ingredientsCtrl.createAPI);
 // method override
