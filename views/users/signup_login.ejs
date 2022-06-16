@@ -1,31 +1,36 @@
 <%- include('../partials/header') %>
-<div>
-  <form action="/users/login" method="post">
-    <fieldset>
-      <legend>User Login</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
-      <label
-        >PASSWORD: <input type="password" name="password" required />
-      </label>
-      <input type="submit" class="btn btn-primary" value="Welcome Back" />
-      <!-- Add Reset button -->
-      <input type="reset" class="btn btn-light" />
-    </fieldset>
-  </form>
-</div>
-<div>
-  <form action="/users/signup" method="post">
-    <fieldset>
-      <legend>New User</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
-      <label
-        >PASSWORD: <input type="password" name="password" required />
-      </label>
-      <input type="submit" class="btn btn-primary" value="Create Account" />
-      <!-- Add Reset button -->
-      <input type="reset" class="btn btn-light" />
-    </fieldset>
-  </form>
-</div>
 
+<div class="index-container">
+  <!-- sidebar -->
+  <div class="sl-sidebar"></div>
+
+  <!-- signup/login container -->
+  <div class="intro">
+    <form action="/users/login" method="post">
+      <fieldset>
+        <legend>User Login</legend>
+        <label>USERNAME: <input type="text" name="username" required /> </label>
+        <label
+          >PASSWORD: <input type="password" name="password" required />
+        </label>
+        <input type="submit" class="btn btn-primary" value="Welcome Back" />
+        <!-- Add Reset button -->
+        <input type="reset" class="btn btn-light" />
+      </fieldset>
+    </form>
+
+    <form action="/users/signup" method="post">
+      <fieldset>
+        <legend>New User</legend>
+        <label>USERNAME: <input type="text" name="username" required /> </label>
+        <label
+          >PASSWORD: <input type="password" name="password" required />
+        </label>
+        <input type="submit" class="btn btn-primary" value="Create Account" />
+        <!-- Add Reset button -->
+        <input type="reset" class="btn btn-light" />
+      </fieldset>
+    </form>
+  </div>
+</div>
 <%- include('../partials/footer') %>

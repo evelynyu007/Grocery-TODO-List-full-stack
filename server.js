@@ -34,9 +34,9 @@ app.set("view engine", "ejs");
 ========================================*/
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); ///false ??????????????????????
+app.use(express.urlencoded({ extended: true })); ///false ??????????????????????
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "/public"))); // serve files from public statically
+app.use(express.static(path.join(__dirname, "public"))); // serve files from public statically
 app.use(methodOverride("_method")); // override for put and delete requests from forms
 //app.use(morgan("tiny")); //logging
 app.use(
