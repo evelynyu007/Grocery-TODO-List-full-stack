@@ -10,20 +10,27 @@ router.get("/ingredients", function (req, res) {
 });
 
 // if already logged in, then cannot logged in / sign up again
-router.get("/users/signup", function (req, res) {
+router.get("/users/signup_login", function (req, res) {
   if (req.session.loggedIn) {
     res.redirect("/mealprep");
   } else {
-    res.render("users/signup");
+    res.render("users/signup_login", { title: "Please Signup/Login" });
   }
 });
+// router.get("/users/signup", function (req, res) {
+//   if (req.session.loggedIn) {
+//     res.redirect("/mealprep");
+//   } else {
+//     res.render("users/signup", { title: "Please Signup" });
+//   }
+// });
 
-router.get("/users/login", function (req, res) {
-  if (req.session.loggedIn) {
-    res.redirect("/mealprep");
-  } else {
-    res.render("users/login");
-  }
-});
+// router.get("/users/login", function (req, res) {
+//   if (req.session.loggedIn) {
+//     res.redirect("/mealprep");
+//   } else {
+//     res.render("users/login", { title: "Please Login" });
+//   }
+// });
 
 module.exports = router;
