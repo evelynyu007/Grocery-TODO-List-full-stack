@@ -13,7 +13,7 @@
 //   //  the API data stored in the model
 //   ingredient.nutrition.push(req.body); // ??
 //   ingredient.save(function (err) {
-//     res.redirect(`/ingredients/${ingredient._id}`);
+//     res.redirect(`/ingredient/${ingredient._id}`);
 //   });
 // }
 

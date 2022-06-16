@@ -6,7 +6,7 @@ router.get("/", function (req, res) {
 });
 
 router.get("/ingredients", function (req, res) {
-  res.redirect("/ingredients/new");
+  res.redirect("/ingredient/new");
 });
 
 // if already logged in, then cannot logged in / sign up again

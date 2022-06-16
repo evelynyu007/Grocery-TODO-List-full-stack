@@ -3,7 +3,7 @@
 <div>
   Before adding, please ensure that the Ingredient is not in the following list:
 </div>
-<!-- action = "/ingredients/ " -->
+<!-- action = "/ingredient/ " -->
 <form id="add-ingredient-form" action="/ingredients" method="POST">
   <label>Ingredient Name:</label>
   <input type="text" name="name" />
@@ -18,15 +18,15 @@
     <img src="<%= i.imgURL %>" alt="<%= i.name %>" />
     <!-- send the form-data to a file named  -->
     <!-- GET -->
-    <!-- <a href="/ingredients/<%= i._id %>"><button>DETAILS</button></a> -->
+    <!-- <a href="/ingredient/<%= i._id %>"><button>DETAILS</button></a> -->
 
-    <form action="/ingredients/<%= i._id %>" method="POST">
+    <form action="/ingredient/<%= i._id %>" method="POST">
       <input type="hidden" name="name" value="<%= i.name %>" />
       <input type="hidden" name="id" value="<%= i._id %>" />
       <button type="submit">DETAILS</button>
     </form>
 
-    <form action="/ingredients/<%= i._id %>?_method=DELETE" method="POST">
+    <form action="/ingredient/<%= i._id %>?_method=DELETE" method="POST">
       <input type="submit" value="Delete" />
     </form>
   </article>

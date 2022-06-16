@@ -37,7 +37,7 @@ async function create(req, res) {
       { name: req.body.name },
       { imgURL: requestURL }
     );
-    res.redirect("/ingredients/new");
+    res.redirect("/ingredient/new");
   });
 }
 
@@ -107,10 +107,10 @@ async function createAPI(req, res) {
 
   // after used IngredientModel to update, ingredient.nutrition=[]
   // console.log("length: " + ingredient.nutrition.length); //this was correct
-  res.redirect(`/ingredients/${id}`);
+  res.redirect(`/ingredient/${id}`);
   ///save
   // ingredient.save(function (err) {
-  //   res.redirect(`/ingredients/${id}`);
+  //   res.redirect(`/ingredient/${id}`);
   // });
 }
 
@@ -119,7 +119,7 @@ function deleteIt(req, res) {
   IngredientModel.findByIdAndRemove(id)
     .then(() => {
       // redirect to the page after deleting
-      res.redirect("/ingredients/new");
+      res.redirect("/ingredient/new");
     })
     // send error as json
     .catch((error) => {
