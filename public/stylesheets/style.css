@@ -172,6 +172,11 @@ footer {
 
 /* ingredient show all the ingredient */
 
-#badge-contianer {
-  display: grid;
+#ingredient-show-page {
+  background: url("../image/index_img.jpeg");
+  width: 1500px;
+  /* center */
+  margin: 50px auto;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
