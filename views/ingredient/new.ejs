@@ -1,37 +1,39 @@
 <%- include('../partials/header') %>
 
-<div>
-  Before adding, please ensure that the Ingredient is not in the following list:
+<div class="ingredient-new">
+  <h4>
+    Before adding, please ensure that the Ingredient is not in the following
+    list:
+  </h4>
+  <!-- action = "/ingredient/ " -->
+  <form id="add-ingredient-form" action="/ingredient" method="POST">
+    <label>Ingredient Name:</label>
+    <input type="text" name="name" />
+    <input type="submit" class="btn btn-success" value="Add Ingredient" />
+  </form>
+
+  <section id="badge-container">
+    <% ingredients.forEach(function(i) { %>
+
+    <article class="badge">
+      <%= i.name %>
+      <img src="<%= i.imgURL %>" alt="<%= i.name %>" />
+      <!-- send the form-data to a file named  -->
+      <!-- GET -->
+      <!-- <a href="/ingredient/<%= i._id %>"><button>DETAILS</button></a> -->
+
+      <form action="/ingredient/<%= i._id %>" method="POST">
+        <input type="hidden" name="name" value="<%= i.name %>" />
+        <input type="hidden" name="id" value="<%= i._id %>" />
+        <button type="submit">DETAILS</button>
+      </form>
+
+      <form action="/ingredient/<%= i._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete" />
+      </form>
+    </article>
+
+    <% }) %>
+  </section>
 </div>
-<!-- action = "/ingredient/ " -->
-<form id="add-ingredient-form" action="/ingredient" method="POST">
-  <label>Ingredient Name:</label>
-  <input type="text" name="name" />
-  <input type="submit" class="btn btn-success" value="Add Ingredient" />
-</form>
-
-<section id="badge-container">
-  <% ingredients.forEach(function(i) { %>
-
-  <article class="badge">
-    <%= i.name %>
-    <img src="<%= i.imgURL %>" alt="<%= i.name %>" />
-    <!-- send the form-data to a file named  -->
-    <!-- GET -->
-    <!-- <a href="/ingredient/<%= i._id %>"><button>DETAILS</button></a> -->
-
-    <form action="/ingredient/<%= i._id %>" method="POST">
-      <input type="hidden" name="name" value="<%= i.name %>" />
-      <input type="hidden" name="id" value="<%= i._id %>" />
-      <button type="submit">DETAILS</button>
-    </form>
-
-    <form action="/ingredient/<%= i._id %>?_method=DELETE" method="POST">
-      <input type="submit" value="Delete" />
-    </form>
-  </article>
-
-  <% }) %>
-</section>
-
 <%- include('../partials/footer') %>

@@ -1,36 +1,51 @@
 <%- include('../partials/header') %>
+<div class="meal-new-container">
+  <form id="new-form" action="/mealprep" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" />
+    <br />
+    <label>Estimated Price($):</label>
+    <input type="number" name="price" />
+    <br />
+    <label>Prepare Time(min):</label>
+    <input type="number" name="prep_time" />
+    <br />
+    <label>Image URL:</label>
+    <input type="url" name="imgURL" />
+    <br />
+    <label>Spicy Rating</label>
+    <select name="starRating">
+      <option value="🌶️🌶️🌶️">🌶️🌶️🌶️</option>
+      <option value="🌶️🌶️">🌶️🌶️</option>
+      <option value="🌶️">🌶️</option>
+    </select>
+    <br />
 
-<form id="new-form" action="/mealprep" method="POST">
-  <label>Title:</label>
-  <input type="text" name="title" />
-  <br />
-  <label>Estimated Price($):</label>
-  <input type="number" name="price" />
-  <br />
-  <label>Prepare Time(min):</label>
-  <input type="number" name="prep_time" />
-  <br />
-  <label>Image URL:</label>
-  <input type="url" name="imgURL" />
-  <br />
-  <label>Spicy Rating</label>
-  <select name="starRating">
-    <option value="🌶️🌶️🌶️">🌶️🌶️🌶️</option>
-    <option value="🌶️🌶️">🌶️🌶️</option>
-    <option value="🌶️">🌶️</option>
-  </select>
-  <br />
+    <!-- add to ingredients form below this comment -->
+    <!-- <label>Select Ingredients: </label> <br />
+    <%- dataIngredients.map(i=>`
+    <input type="checkbox" id="${i._id}" name="ingredients" value="${i._id}" />
+    <label for="${i._id}">${i.name}</label><br />
+    `).join('') %> -->
+    <label>Select Ingredients: </label> <br />
+    <div class="meal-ingredients-con">
+      <div class="meal-ingredients">
+        <% dataIngredients.forEach(function(i){ %>
+        <img src="<%= i.imgURL %>" alt="<%= i.name %>" />
+        <input
+          type="checkbox"
+          id="<%= i._id %>"
+          name="ingredients"
+          value="<%= i._id %>"
+        />
+        <label for="<%= i._id %>"><%= i.name %></label><br />
 
-  <!-- add to ingredients form below this comment -->
-  <label>Select Ingredients: </label> <br />
-  <%- dataIngredients.map(i=>`
-  <input type="checkbox" id="${i._id}" name="ingredients" value="${i._id}" />
-  <label for="${i._id}">${i.name}</label><br />
-  `).join('') %>
+        <% }) %>
+      </div>
+    </div>
 
-  <!-- Submit Meal Prep  -->
-
-  <input type="submit" class="btn btn-success" value="Add Meal Prep" />
-</form>
-
+    <!-- Submit Meal Prep  -->
+    <input type="submit" class="btn btn-success" value="Add Meal Prep" />
+  </form>
+</div>
 <%- include('../partials/footer') %>

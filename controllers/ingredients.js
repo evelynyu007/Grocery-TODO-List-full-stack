@@ -60,7 +60,7 @@ async function show(req, res) {
 
   const ingredient = await IngredientModel.findById(req.params.id);
 
-  res.render("ingredients/show", {
+  res.render("ingredient/show", {
     title: "Ingredient Detail",
     dataMeal,
     ingredient,

@@ -35,7 +35,7 @@ async function create(req, res) {
 
 // GET
 function indexLogin(req, res) {
-  res.render("users/login", { title: "Login Here" });
+  res.render("users/login", { title: "Please Login Here" });
 }
 
 // POST
@@ -56,13 +56,21 @@ async function show(req, res) {
           // redirect to meal page if successful
           res.redirect("/mealprep");
         } else {
-          res.json({ error: "🌚 Password doesn't match! 🌚" });
+          // res.json({ error: "🌚 Password doesn't match! 🌚" });
+          res.render("error", {
+            message: "?????",
+            error: "🌚 Password doesn't match! 🌚",
+          });
         }
       } catch (err) {
         res.json({ message: err.message });
       }
     } else {
-      res.json({ error: " User doesn't exist! Did you signup? " });
+      // res.json({ error: " User doesn't exist! Did you signup? " });
+      res.render("error", {
+        message: "Did you signup?????",
+        error: "User doesn't exist!!!!!",
+      });
     }
   } catch (err) {
     res.json({ meesage: err.meesage });

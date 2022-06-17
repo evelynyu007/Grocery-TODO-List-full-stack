@@ -1,14 +1,26 @@
 <%- include('../partials/header') %>
-<div>
-  <form action="/users/login" method="post">
-    <fieldset>
-      <legend>User Login</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
-      <label
-        >PASSWORD: <input type="password" name="password" required />
-      </label>
-      <input type="submit" value="Login" />
-    </fieldset>
-  </form>
+
+<div class="index-container">
+  <!-- sidebar -->
+  <div class="sl-sidebar"></div>
+
+  <!-- signup/login container -->
+  <div class="intro">
+    <form action="/users/login" method="post">
+      <fieldset>
+        <legend>User Login</legend>
+        <label>USERNAME: <input type="text" name="username" required /> </label>
+        <br />
+        <label
+          >PASSWORD: <input type="password" name="password" required />
+        </label>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-primary" value="Welcome" />
+        <!-- Add Reset button -->
+        <input type="reset" class="btn btn-light" />
+      </fieldset>
+    </form>
+  </div>
 </div>
 <%- include('../partials/footer') %>
