@@ -145,16 +145,29 @@ footer {
   margin-left: auto;
   margin-right: auto;
 }
-.meal-ingredients-con {
+.meal-new-container .badge-container {
   display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(10, 100px);
+  grid-row-gap: 25px;
+  grid-column-gap: 25px;
 }
-.meal-ingredients {
+.meal-new-container .badge {
   display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: 100px 10px 10px;
+  justify-content: center;
+  color: #222;
   grid-template-areas:
-    "header"
-    "content content";
+    "head"
+    "left right";
+}
+.meal-new-container img {
+  grid-area: head;
+}
+.meal-new-container input[type="checkbox"] {
+  grid-area: right;
+}
+.meal-new-container label {
+  grid-area: left;
 }
 
 /* ingredient show all the ingredient */
