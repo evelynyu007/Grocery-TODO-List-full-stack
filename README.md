@@ -7,6 +7,10 @@
 ⏩ Check out this Meal-Oriented To Buy APP! <br/>
 ✅ Foodie hunting for new grocery stuff? No problem!<br/>
 
+# Check out the APP:
+
+https://grocerytobuy.herokuapp.com/
+
 # The User Story:
 
 As I a user:
