@@ -9,7 +9,7 @@
 
 # Check out this APP:
 
-https://grocerytobuy.herokuapp.com/
+## https://grocerytobuy.herokuapp.com/
 
 # The User Story:
 
@@ -21,6 +21,8 @@ As I a user:
 - be able to delete meal one by one/delete all of them
 - be able to know the total cost
 - be able to add new item from Kroger API
+
+# V1.0 Screenshot
 
 # The Wireframes:
 
