@@ -3,11 +3,10 @@
 /////////////////////////////////////////////
 const createError = require("http-errors");
 const express = require("express");
-// did i use morgan???
 // const morgan = require("morgan"); //HTTP request logger middleware for node js
+const logger = require("morgan");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const logger = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -33,12 +32,15 @@ app.set("view engine", "ejs");
         Middleware
 ========================================*/
 app.use(logger("dev"));
+//app.use(morgan("tiny")); //logging
 app.use(express.json());
+// TODO:
 app.use(express.urlencoded({ extended: true })); ///false ??????????????????????
+// TODO:  difference from body-parser??
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"))); // serve files from public statically
 app.use(methodOverride("_method")); // override for put and delete requests from forms
-//app.use(morgan("tiny")); //logging
+
 app.use(
   session({
     secret: process.env.SECRET,

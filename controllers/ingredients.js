@@ -27,6 +27,7 @@ module.exports = {
 // }
 
 // POST
+// get the ingredient API data and then redirect
 async function create(req, res) {
   // handle the name with spaces - not now
   requestURL = `https://spoonacular.com/cdn/ingredients_100x100/${req.body.name}.jpg`;
@@ -38,10 +39,12 @@ async function create(req, res) {
       { imgURL: requestURL }
     );
     res.redirect("/ingredient/new");
+    // res.render("/ingredient/new"); // cannot use redener even with body parser
   });
 }
 
 // GET
+// get all the ingredients data
 async function newIngredient(req, res) {
   IngredientModel.find({}, function (err, ingredients) {
     res.render("ingredient/new", {

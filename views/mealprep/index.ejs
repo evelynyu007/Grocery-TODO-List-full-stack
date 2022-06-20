@@ -1,55 +1,60 @@
 <%- include('../partials/header') %> <% if (mealprep.length) { %>
 
-<div class="meal-index">
-  <table id="list">
-    <thead>
-      <tr>
-        <th>Meal</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <% let total = 0 %>
+<div class="meal-index-con">
+  <!-- sidebar -->
+  <div class="meal-index-sidebar"></div>
 
-    <tbody>
-      <% mealprep.forEach(function(m) { %>
-      <tr>
-        <td><%= m.title %></td>
-        <td><%= m.price %></td>
-        <% if(m.price) total += m.price %>
-        <td>
-          <a href="/mealprep/<%= m._id %>"
-            ><button type="button" class="btn btn-success btn-sm">
-              DETAILS
-            </button></a
-          >
-        </td>
-        <td>
-          <!--  ?_method=DELETE to overwrite POST-->
-          <form action="/mealprep/<%= m._id %>?_method=DELETE" method="POST">
-            <input
-              type="submit"
-              value="Delete"
-              type="button"
-              class="btn btn-secondary btn-sm"
-            />
-          </form>
-        </td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  <br />
-  <br />
-  <br />
-  <h3>💵 Total Cost: <%= total %> 💵</h3>
-  <% } else { %>
-  <h3>No Meal Prep Yet</h3>
-  <% } %>
+  <div class="meal-index">
+    <table id="list">
+      <thead>
+        <tr>
+          <th>Meal</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% let total = 0 %>
 
-  <br />
-  <a href="/users/logout"
-    ><button type="button" class="btn btn-dark btn-sm">Logout</button></a
-  >
+      <tbody>
+        <% mealprep.forEach(function(m) { %>
+        <tr>
+          <td><%= m.title %></td>
+          <td><%= m.price %></td>
+          <% if(m.price) total += m.price %>
+          <td>
+            <a href="/mealprep/<%= m._id %>"
+              ><button type="button" class="btn btn-success btn-sm">
+                DETAILS
+              </button></a
+            >
+          </td>
+          <td>
+            <!--  ?_method=DELETE to overwrite POST-->
+            <form action="/mealprep/<%= m._id %>?_method=DELETE" method="POST">
+              <input
+                type="submit"
+                value="Delete"
+                type="button"
+                class="btn btn-secondary btn-sm"
+              />
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <h3 class="total-cost">💵 Total Cost: <%= total %> 💵</h3>
+    <% } else { %>
+    <h3>No Meal Prep Yet</h3>
+    <% } %>
+
+    <br />
+    <a href="/users/logout"
+      ><button type="button" class="btn btn-dark btn-sm">Logout</button></a
+    >
+  </div>
 </div>
 <%- include('../partials/footer') %>

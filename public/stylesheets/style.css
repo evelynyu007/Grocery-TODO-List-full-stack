@@ -68,7 +68,7 @@ footer {
   margin: 80px auto 20px;
 }
 
-/* Index Page */
+/*** Signup-Login Page ***/
 .index-container {
   /* width: 80vw; */
   width: 1100px;
@@ -100,7 +100,7 @@ footer {
   margin-bottom: 10px;
 }
 
-/* Sign up / login in */
+/***  login in only sidebar ***/
 .sl-sidebar {
   width: 50%;
   background: url("../image/login_img.jpeg");
@@ -108,49 +108,85 @@ footer {
   background-repeat: no-repeat;
   border-radius: 10px 0 0 10px;
 }
-
-/* meal index */
-.meal-index {
-  background: url("../image/orange.jpeg");
-  width: 1500px;
-  height: 900px;
-  /* center */
+/***************************/
+/*** all-meal-index ***/
+.meal-index-con {
+  width: 1200px;
+  min-height: 800px;
   margin: 50px auto;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #bbb, -1px -1px 10px #bbb, 1px -1px 10px #bbb,
+    -1px 1px 10px #bbb;
+}
+.meal-index-sidebar {
+  width: 50%;
+  background: url("../image/coffeeBackground.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
 }
-
+.meal-index {
+  width: 50%;
+  padding-top: 35px;
+}
+.meal-index th {
+  font-size: larger;
+}
+.total-cost {
+  font-size: xx-large;
+}
 #list {
   font-size: large;
   margin-left: auto;
   margin-right: auto;
 }
 
-.meal-index th {
-  font-size: x-large;
-}
-
-/* new meal prep page */
+/***************************/
+/*** new meal prep page ***/
 .meal-new-container {
-  background: url("../image/plannerBackground.jpeg");
   width: 1500px;
-  height: 900px;
-  /* center */
+  height: auto;
   margin: 50px auto;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #bbb, -1px -1px 10px #bbb, 1px -1px 10px #bbb,
+    -1px 1px 10px #bbb;
+}
+.new-meal-sidebar {
+  width: 50%;
+  background: url("../image/spoon.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
 }
+.create-new-meal-con {
+  width: 50%;
+  background: #fffcfc;
+  border-radius: 0 10px 10px 0;
+  padding: 15px;
+  box-sizing: border-box;
+  overflow: auto;
+  padding-top: 30px;
+}
+
 #new-form {
-  font-size: large;
+  font-size: x-large;
   margin-left: auto;
   margin-right: auto;
 }
+/* input text left align */
+.fill-new-meal {
+  text-align: left;
+  padding-left: 25px;
+}
+
 .meal-new-container .badge-container {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(10, 100px);
-  grid-row-gap: 25px;
-  grid-column-gap: 25px;
+  grid-template-columns: repeat(6, 90px);
+  grid-row-gap: 5px;
+  grid-column-gap: 20px;
 }
 .meal-new-container .badge {
   display: grid;
@@ -170,13 +206,36 @@ footer {
   grid-area: left;
 }
 
-/* ingredient show all the ingredient */
+/*** create new ingredient ***/
+.ingredient-new .badge-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(10, 100px);
+  grid-row-gap: 15px;
+  grid-column-gap: 30px;
+}
 
-#ingredient-show-page {
-  background: url("../image/index_img.jpeg");
-  width: 1500px;
-  /* center */
+/*** ingredient show all the ingredient ***/
+
+.ingredient-show-con {
+  width: 1300px;
+  height: auto;
   margin: 50px auto;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px #bbb, -1px -1px 10px #bbb, 1px -1px 10px #bbb,
+    -1px 1px 10px #bbb;
+}
+.nutrition-sidebar {
+  width: 65%;
+  background: url("../image/index_img.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 10px 0 0 10px;
+}
+.nutrition-show-page {
+  background: #fffcfc;
+  width: 35%;
+  text-align: left;
+  padding-left: 25px;
 }

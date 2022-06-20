@@ -1,35 +1,40 @@
 <%- include('../partials/header') %>
 
-<section id="ingredient-show-page">
-  <h3>Name:</h3>
-  <h2><%= ingredient.name %></h2>
-  <br />
+<div class="ingredient-show-con">
+  <!-- sidebar -->
+  <div class="nutrition-sidebar"></div>
 
-  <!-- show meals below this comment -->
-  <h3>Meal Ideas:</h3>
-  <ul>
-    <% dataMeal.forEach(function(m){ %>
-    <p>
-      <%= m.title %>
-      <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>
-    </p>
-    <% }) %>
-  </ul>
+  <section class="nutrition-show-page">
+    <h3>Name:</h3>
+    <h2><%= ingredient.name %></h2>
+    <br />
 
-  <br /><br /><br />
-  <!-- start Nutrition list -->
-  <!-- Grab from API -->
-  <% if (ingredient.nutrition.length > 0){ %>
-  <h3>Description:</h3>
-  <%= ingredient.description %>
-  <br />
-  <h3>Nutrition:</h3>
-  <% ingredient.nutrition.forEach(function(i){ %> <%= i.nutrientName %> : <%=
-  i.value %><%= i.unitName %> <br />
-  <% }); %> <% } else { %>
-  <h3>Nutrition Not Found</h3>
-  <% } %>
-  <!-- end Nutrition list -->
-</section>
+    <!-- show meals below this comment -->
+    <h3>Meal Ideas:</h3>
+    <ul>
+      <% dataMeal.forEach(function(m){ %>
+      <p>
+        <%= m.title %>
+        <a href="/mealprep/<%= m._id %>"><button>DETAILS</button></a>
+      </p>
+      <% }) %>
+    </ul>
+
+    <br /><br />
+    <!-- start Nutrition list -->
+    <!-- Grab from API -->
+    <% if (ingredient.nutrition.length > 0){ %>
+    <h3>Description:</h3>
+    <%= ingredient.description %>
+    <br /><br />
+    <h3>Nutrition:</h3>
+    <% ingredient.nutrition.forEach(function(i){ %> <%= i.nutrientName %> : <%=
+    i.value %><%= i.unitName %> <br />
+    <% }); %> <% } else { %>
+    <h3>Nutrition Not Found</h3>
+    <% } %>
+    <!-- end Nutrition list -->
+  </section>
+</div>
 
 <%- include('../partials/footer') %>
