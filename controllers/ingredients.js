@@ -16,16 +16,6 @@ module.exports = {
   deleteIt,
 };
 
-/// NOT ADD Ingredient from meal pages
-// function addToIngredient(req, res) {
-//   MealprepModel.findById(req.params.id, function (err, mealprep) {
-//     mealprep.ingredients.push(req.body.ingredientId); // ingredientID from show.ejs
-//     mealprep.save(function (err) {
-//       res.redirect(`/mealprep/${mealprep._id}`);
-//     });
-//   });
-// }
-
 // POST
 // get the ingredient API data and then redirect
 async function create(req, res) {
