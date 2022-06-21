@@ -34,11 +34,12 @@ app.set("view engine", "ejs");
 app.use(logger("dev"));
 //app.use(morgan("tiny")); //logging
 app.use(express.json());
-// TODO:
+// to tell express to use the middleware??
 app.use(express.urlencoded({ extended: true })); ///false ??????????????????????
 // TODO:  difference from body-parser??
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public"))); // serve files from public statically
+// serve files from public statically
+app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method")); // override for put and delete requests from forms
 
 app.use(
@@ -53,12 +54,18 @@ app.use(
 /*========================================
         Routes
 ========================================*/
+// no shi.. put next(creatError(404)) here will get crushed...
+// app.use(function (req, res, next) {
+//   next(); // without createError(404) then works!...
+// });
+
 app.use("/", indexRouter);
 app.use("/mealprep", mealprepRouter);
 app.use("/", ingredientRouter);
 app.use("/users", userRouter);
 
-// catch 404 and forward to error handler
+// no shi.. the following cannot before app.use()
+// catch 404 and forward to error handler & middleware
 app.use(function (req, res, next) {
   next(createError(404));
 });

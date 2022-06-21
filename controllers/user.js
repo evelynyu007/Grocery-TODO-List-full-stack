@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs/dist/bcrypt");
 const UserModel = require("../models/user.js");
+const IngredientModel = require("../models/ingredient.js");
 
 module.exports = {
   indexSignup,
@@ -53,6 +54,8 @@ async function show(req, res) {
           req.session.username = username;
           req.session.loggedIn = true;
           console.log(req.session);
+          // ingredient username also store the username -to update -not working
+          // await IngredientModel.updateOne({ username: username });
           // redirect to meal page if successful
           res.redirect("/mealprep");
         } else {

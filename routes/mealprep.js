@@ -8,6 +8,7 @@ const mealprepCtrl = require("../controllers/mealprep.js");
 // Authorization Middleware
 // cannot access food unless login
 router.use((req, res, next) => {
+  console.log("mealprep user auth: " + req.session.loggedIn);
   if (req.session.loggedIn) {
     next();
     console.log("next is running");

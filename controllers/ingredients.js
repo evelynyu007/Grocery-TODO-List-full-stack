@@ -46,6 +46,7 @@ async function create(req, res) {
 // GET
 // get all the ingredients data
 async function newIngredient(req, res) {
+  // console.log("User name: " + IngredientModel.username); //check username? undefined
   IngredientModel.find({}, function (err, ingredients) {
     res.render("ingredient/new", {
       title: "Add Ingredient",
@@ -70,7 +71,7 @@ async function show(req, res) {
   });
 }
 
-// POST for API
+// POST for nutrition API
 async function createAPI(req, res) {
   console.log(req.body.name);
   const id = req.body.id;
@@ -119,14 +120,23 @@ async function createAPI(req, res) {
 
 function deleteIt(req, res) {
   const id = req.params.id;
-  IngredientModel.findByIdAndRemove(id)
-    .then(() => {
-      // redirect to the page after deleting
-      res.redirect("/ingredient/new");
-    })
-    // send error as json
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
+  const username = req.session.username;
+  console.log(username);
+  if (username === "admin") {
+    IngredientModel.findByIdAndRemove(id)
+      .then(() => {
+        // redirect to the page after deleting
+        res.redirect("/ingredient/new");
+      })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  } else {
+    res.render("../views/error.ejs", {
+      message: "No Auth. Only for Admin.",
+      error: "you cannot delete ingredient",
     });
+  }
 }
